@@ -6,7 +6,10 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:5000';
+// Use Vite environment variable for API URL (set in frontend/.env for deployment).
+// Falls back to the provided Render URL if the env var is not present.
+const API_URL = import.meta.env.VITE_API_URL || 'https://expense-tracker-a8kj.onrender.com';
+axios.defaults.baseURL = API_URL;
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
