@@ -12,6 +12,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Home Route
+app.get('/', (req, res) => {
+    res.send('Expense Tracker Backend API is Live');
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api', expenseRoutes);
